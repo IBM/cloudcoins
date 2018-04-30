@@ -1,0 +1,8 @@
+[
+  {"page":1,"title":"think","subtitle":"2018","image":"boy pirate","subtext":"secret map","description":"an IBM Code experiment qwioeuqtest"},
+  {"page":2,"title":"direction","subtitle":"to the future","image":"map","subtext":"find your way","description":"we built this indoor map to help you find a way around the expo … and to show cloud in action"},
+  {"page":3,"title":"containers","subtitle":"kubernetes","image":"kubernetes","subtext":"cloud native","description":"our system runs in kubernetes on IBM Cloud It took us six weeks to pull it together"},
+  {"page":4,"title":"blockchain","subtitle":"anonymity","image":"blockchain","subtext":"data trading","description":"did you notice, you didn’t have to log in? this app trades your data anonymously for ‘fitcoins’"},
+  {"page":5,"title":"augmented","subtitle":"reality?","image":"telescope","subtext":"poly objects","description":"augmented assets are served from IBM’s Object Store we’re just getting started"},
+  {"page":6,"title":"clever","subtitle":"watson","image":"watson","subtext":"words","description":"with natural language support, you can just ask the app where an expo booth is"}
+]
