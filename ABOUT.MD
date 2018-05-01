@@ -16,7 +16,7 @@ It was also created as a fun, and interesting way to put IBM Cloud technology in
 
 The backend is written in Node.JS, the iOS app in Swift 4 and the Android app in Java.
 
-It was developed by Anthony Amanse, Ishan Gulhane, Hovig Ohannessian, Raheel Zubairy
+It was developed by Anthony Amanse, Ishan Gulhane, Hovig Ohannessian, Raheel Zubairy ( with leadership from Laura Bennett )
 
 Here's a high level overview of the technology:
 
