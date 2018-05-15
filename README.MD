@@ -20,6 +20,10 @@ Blockchain, as much as it offers technical strengths - for security, data integr
 
 We built Kubecoin to play with IBM's Cloud technology ... Kubernetes, Blockchain, Cloud Functions, Mongo by Compose, Node ... and in the future, with Machine Learning and Watson.  
 
+##### How to manage Kubecoin at an event
+
+See the booth primer (here)[https://github.com/IBM/kubecoin/blob/master/ABOUT.MD]
+
 ##### This repo
 
 This repo is for the iOS/iPhone app that connects to a blockchain network. There are associated repos and concepts that go along with this.
