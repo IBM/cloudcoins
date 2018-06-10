@@ -37,12 +37,32 @@ developed by Anthony Amanse
 https://play.google.com/store/apps/details?id=com.amanse.anthony.fitcoinandroid&hl=en
 
 ##### Kubecoin Dashboard:
-https://kubecoin.mybluemix.net/
+http://kubecoin.mybluemix.net/
 
-We want to show this on a display as much as possible.
+> (bug) http is needed to enable socket connection to listen to blockchain events (will create a new block in dashboard when there is a transaction)
+
+We want to show this on a display as much as possible. The dashboard shows the blocks created by the blockchain. The blocks contains the transactions that were performed.
+
+Blockchain transactions (a commit/change to the ledger) include:
+
+* user registration
+* updating steps and generating fitcoins
+* user creating a contract (claiming swags from shop view in phone)
+* user canceling a contract
+* confirming contracts (us confirming the contracts and giving them the swag)
 
 ##### Kubecoin Shop dashboard
 to complete transactions (enter contract id and complete):
-https://kubecoin-shop.mybluemix.net/shop
+https://kubecoin-shop.mybluemix.net/
 
-We want to keep this to ourselves to show a participant when they cash in.
+> github repo: https://github.com/AnthonyAmanse/kubecoin-shop
+
+We want to keep this to ourselves to show a participant when they cash in. After pressing "Confirm" contract, you'll get a message saying that confirming the contract is successful with a transaction ID from the blockchain.
+
+##### Kubecoin Raffle
+to pick a random participant out of all of them (click on header to start):
+https://kubecoin-raffle.mybluemix.net/
+
+> github repo: https://github.com/AnthonyAmanse/raffle
+
+_temporary raffle dashboard_
