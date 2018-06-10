@@ -22,7 +22,7 @@ We built Kubecoin to play with IBM's Cloud technology ... Kubernetes, Blockchain
 
 ##### How to manage Kubecoin at an event
 
-See the booth primer (here)[https://github.com/IBM/kubecoin/blob/master/ABOUT.MD]
+See the booth primer [here](https://github.com/IBM/kubecoin/blob/master/ABOUT.MD)
 
 ##### This repo
 
