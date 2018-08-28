@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D577D2D50C5CD061C9E09FE /* libPods-fitcoin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F13BC72B655929E3C59BE395 /* libPods-fitcoin.a */; };
 		922D72902036990500A345A1 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D728F2036990500A345A1 /* ShopViewController.swift */; };
 		922D72B2203BA8E200A345A1 /* QuantityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D72B1203BA8E200A345A1 /* QuantityViewController.swift */; };
 		9238EC5D202D09AA00AD1535 /* BlockchainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9238EC5C202D09AA00AD1535 /* BlockchainUser.swift */; };
@@ -155,7 +154,6 @@
 		A2F905002051E2F8008E1FFA /* Treasure.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Treasure.scn; sourceTree = "<group>"; };
 		A2F905042051E64E008E1FFA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E5A42EA1B514D8A227CB6590 /* Pods-fitcoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitcoin.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitcoin/Pods-fitcoin.release.xcconfig"; sourceTree = "<group>"; };
-		F13BC72B655929E3C59BE395 /* libPods-fitcoin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fitcoin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +163,6 @@
 			files = (
 				A2F905052051E64E008E1FFA /* WebKit.framework in Frameworks */,
 				A28E57CA2011558100CE4C58 /* HealthKit.framework in Frameworks */,
-				5D577D2D50C5CD061C9E09FE /* libPods-fitcoin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +244,6 @@
 			children = (
 				A2F905042051E64E008E1FFA /* WebKit.framework */,
 				A28E57C92011558100CE4C58 /* HealthKit.framework */,
-				F13BC72B655929E3C59BE395 /* libPods-fitcoin.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
