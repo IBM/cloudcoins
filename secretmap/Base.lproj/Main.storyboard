@@ -582,7 +582,7 @@
                                     <navigationItem title="Shop" id="rWj-56-WSe">
                                         <barButtonItem key="rightBarButtonItem" image="ibm-orders" id="Ldd-2y-HtM">
                                             <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <segue destination="sTi-Gx-rL9" kind="presentation" id="jvH-GR-H1l"/>
                                             </connections>
@@ -717,7 +717,7 @@
                                 <items>
                                     <navigationItem title="Shop" id="qCO-BS-hPM">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ixZ-Oi-zUK">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="cancel:" destination="r6N-If-h9Y" id="5DB-cM-ZQ3"/>
                                             </connections>
@@ -854,7 +854,7 @@
                                 <items>
                                     <navigationItem title="Contract" id="3hC-j0-82Y">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="Y15-Gk-Ffm">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="back:" destination="BMu-Uy-qBO" id="O4U-3r-WVw"/>
                                             </connections>
