@@ -15,9 +15,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.02</string>
+	<string>1.4</string>
 	<key>CFBundleVersion</key>
-	<string>1.2</string>
+	<string>1.4</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
@@ -40,7 +40,9 @@
 	<key>NSMotionUsageDescription</key>
 	<string>Convert your footsteps to Fitcoins - fitness data never leaves your phone</string>
 	<key>UIBackgroundModes</key>
-	<array/>
+	<array>
+		<string>fetch</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

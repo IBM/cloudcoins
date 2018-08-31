@@ -10,7 +10,15 @@ import UIKit
 import CoreData
 import HealthKit
 import CoreMotion
+import UserNotifications
+import UserNotificationsUI
 
+import BMSCore
+import BMSPush
+
+struct PushClientResponse: Codable {
+    var deviceId: String
+}
 
 extension Notification.Name {
     static let zoneEntered = Notification.Name(
@@ -31,7 +39,8 @@ struct iBeacons: Codable {
 }
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,BMSPushObserver {
+
 
     var window: UIWindow?
     
@@ -58,6 +67,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.black]
         
         self.initializeData()
+        
+        BMSClient.sharedInstance.initialize(bluemixRegion: BMSClient.Region.usSouth)
+        // MARK: remove the hardcoding in future
+        BMSPushClient.sharedInstance.initializeWithAppGUID(appGUID: "", clientSecret: "")
+        BMSPushClient.sharedInstance.delegate = self as BMSPushObserver
         
         return true
     }
@@ -92,7 +106,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }
     }
-    
     
     func getStartDate() -> Date{
         return self.startDate
@@ -166,6 +179,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("Permission granted: \(granted)")
+            
+            guard granted else { return }
+            self.getNotificationSettings()
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+    }
+    
+    func onChangePermission(status: Bool) {
+        print("Push Notification is enabled:  \(status)" as NSString)
+    }
+    
+    func application (_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map { data -> String in
+            return String(format: "%02.2hhx", data)
+        }
+        let token = tokenParts.joined()
+        // 2. Print device token to use for PNs payloads
+        print("Device Token: \(token)")
+        
+        let push =  BMSPushClient.sharedInstance
+        push.registerWithDeviceToken(deviceToken: deviceToken) { (response, statusCode, error) -> Void in
+            if error.isEmpty {
+                print( "Response during device registration : \(String(describing: response))")
+                print( "status code during device registration : \(String(describing: statusCode))")
+                guard let response = response else {
+                    return
+                }
+                do {
+                    guard let data = response.data(using: .utf8) else {
+                        return
+                    }
+                    let decodedResponse = try JSONDecoder().decode(PushClientResponse.self, from: data)
+                } catch let error {
+                    print("Error during parsing response: \(error.localizedDescription)")
+                }
+            } else {
+                print( "Error during device registration \(error) ")
+            }
+        }
+    }
 }
 
