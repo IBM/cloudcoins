@@ -25,18 +25,18 @@ extension Notification.Name {
         rawValue: "zoneEntered")
 }
 
-struct iBeacon: Codable {
-    let zone: Int
-    let key: String
-    let value: String
-    let x: Int
-    let y: Int
-    let width: Int
-}
-
-struct iBeacons: Codable {
-    let beacons:[iBeacon]
-}
+//struct iBeacon: Codable {
+//    let zone: Int
+//    let key: String
+//    let value: String
+//    let x: Int
+//    let y: Int
+//    let width: Int
+//}
+//
+//struct iBeacons: Codable {
+//    let beacons:[iBeacon]
+//}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,BMSPushObserver {
@@ -54,6 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMSPushObserver {
     var pace:Double! = nil
     
     var pedometer = CMPedometer()
+    
+    var selectedEventCoreData: SelectedEventCoreData?
+    var eventCoreData: EventCoreData?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -66,8 +69,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMSPushObserver {
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.black]
         
-        self.initializeData()
+        // initialize core data helpers
+        selectedEventCoreData = SelectedEventCoreData(context: self.persistentContainer.viewContext)
+        eventCoreData = EventCoreData(context: self.persistentContainer.viewContext)
         
+        
+        // MARK: - Register/initialize after event selection with proper tags
         BMSClient.sharedInstance.initialize(bluemixRegion: BMSClient.Region.usSouth)
         // MARK: remove the hardcoding in future
         BMSPushClient.sharedInstance.initializeWithAppGUID(appGUID: "", clientSecret: "")
@@ -76,39 +83,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMSPushObserver {
         return true
     }
     
-    func initializeData(){
-        
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        var currentPerson:Person
-        
-        var people: [Person] = []
-       
-        do {
-           people = try context.fetch(Person.fetchRequest())
-           
-            if( people.count > 0 ){
-                currentPerson = people[0]
-                self.startDate = currentPerson.startdate!
-            }else{
-                let person = Person(context: context) // Link Person & Context
-                person.startdate = Date()
-                self.startDate = person.startdate!
-                
-                do{
-                    try context.save()
-                }catch{
-                     print("Initializing local person data")
-                }
-            }
-            
-        } catch {
-
+    func onEventSelection(_ eventName: String) {
+        selectedEventCoreData?.chooseEvent(event: eventName)
+        if eventCoreData?.getPerson(event: eventName) == nil {
+            registerAtSelectedEvent(eventName)
+        } else {
+            print("Already registered on blockchain")
+            // TODO: - register notification at a TAG for multi-event
         }
     }
     
-    func getStartDate() -> Date{
-        return self.startDate
+    func registerAtSelectedEvent(_ eventName: String) {
+        UserClient(event: eventName).registerUser { (userId, name, avatar) in
+            self.eventCoreData?.savePerson(userId: userId, participantname: name, avatar: avatar, event: eventName)
+            
+            let alert = UIAlertController(title: "Enrollment successful!", message: "You have been enrolled to the blockchain network. Your User ID is:\n\n\(userId)", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: nil))
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -236,4 +228,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMSPushObserver {
         }
     }
 }
-

@@ -18,6 +18,7 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let cellReuseIdentifier = "contractCell"
     
     var userContracts: [Contract]?
+    var event: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,7 +101,15 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let alert = UIAlertController(title: "Decline this Contract?", message: "You have requested to decline contract\n\n \(userContracts!.reversed()[indexPath.row].id)\n\(userContracts!.reversed()[indexPath.row].quantity) of \(userContracts!.reversed()[indexPath.row].productName)\n\nThis can't be undone.", preferredStyle: UIAlertControllerStyle.actionSheet)
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "Yes, remove this contract", style: UIAlertActionStyle.destructive, handler: {
-                (action: UIAlertAction) in self.declineContract(userId: self.userContracts!.reversed()[indexPath.row].userId, contractId: self.userContracts!.reversed()[indexPath.row].id)
+                (action: UIAlertAction) in
+                if let eventId = self.event {
+                    let currentContract = self.userContracts!.reversed()[indexPath.row]
+                    ShopClient(userId: currentContract.userId, event: eventId).cancelContract(contractId: currentContract.id) { done in
+                        if done {
+                            self.alertDeclineSuccess()
+                        }
+                    }
+                }
             }))
             
             self.present(alert, animated: true, completion: nil)
@@ -115,45 +124,12 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.present(contractViewController!, animated: true, completion: nil)
     }
     
-    // This should start the decline contract process
-    // This is queued
-    // no callback
-    private func declineContract(userId: String, contractId: String) {
-        guard let url = URL(string: BlockchainGlobals.URL + "api/execute") else { return }
-        let parameters: [String:Any]
-        let request = NSMutableURLRequest(url: url)
-        
-        let session = URLSession.shared
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let args: [String] = [userId, contractId, "declined"]
-        parameters = ["type":"invoke", "queue":"user_queue", "params":["userId": userId,"fcn": "transactPurchase", "args":args]]
-        request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
-        
-        let declineContract = session.dataTask(with: request as URLRequest) { (data, response, error) in
-            
-            if let data = data {
-                do {
-                    // Convert the data to JSON
-                    let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-                    
-                    if let json = jsonSerialized, let status = json["status"], let resultId = json["resultId"] {
-                        NSLog(status as! String)
-                        NSLog(resultId as! String)
-                        let alert = UIAlertController(title: "Request Sent!", message: "Your request to decline the contract has been sent to the blockchain network. The contract's state should update at a later time.", preferredStyle: UIAlertControllerStyle.alert)
-                        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: {
-                            (action: UIAlertAction) in self.dismiss(animated: true, completion: nil)
-                        }))
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                }  catch let error as NSError {
-                    print(error.localizedDescription)
-                }
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-        declineContract.resume()
+    private func alertDeclineSuccess() {
+        let alert = UIAlertController(title: "Request Sent!", message: "Your request to decline the contract has been sent to the blockchain network. The contract's state should update at a later time.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: {
+            (action: UIAlertAction) in self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 
     /*

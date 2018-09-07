@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1406A02852F1BDE866A52598 /* Pods_kubecoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B418E209F42D2A787D738E1E /* Pods_kubecoin.framework */; };
 		922D72902036990500A345A1 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D728F2036990500A345A1 /* ShopViewController.swift */; };
 		922D72B2203BA8E200A345A1 /* QuantityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D72B1203BA8E200A345A1 /* QuantityViewController.swift */; };
-		9238EC5D202D09AA00AD1535 /* BlockchainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9238EC5C202D09AA00AD1535 /* BlockchainUser.swift */; };
+		925D1B18213DCA280002DD6C /* EventCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D1B17213DCA270002DD6C /* EventCoreData.swift */; };
 		9278B40A20461CE800D83B4D /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278B40920461CE800D83B4D /* OrderTableViewCell.swift */; };
 		9278B40C204727AB00D83B4D /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278B40B204727AB00D83B4D /* Globals.swift */; };
+		92A94DC82141F58300F36B85 /* ShopClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A94DC72141F58300F36B85 /* ShopClient.swift */; };
+		92AF8ABA213DD418007BBB70 /* UserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF8AB9213DD418007BBB70 /* UserClient.swift */; };
+		92AF8ABC213DE991007BBB70 /* SelectedEventCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF8ABB213DE991007BBB70 /* SelectedEventCoreData.swift */; };
+		92AF8ABF213DF6A5007BBB70 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF8ABE213DF6A5007BBB70 /* EventModel.swift */; };
+		92AF8AC1213DF758007BBB70 /* EventClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF8AC0213DF758007BBB70 /* EventClient.swift */; };
 		92BF0680203D2E0500B388F9 /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF067F203D2E0500B388F9 /* ContractViewController.swift */; };
 		92BF0682203E761900B388F9 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF0681203E761900B388F9 /* OrdersViewController.swift */; };
 		92CE166B203F8BF8002B628C /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CE166A203F8BF8002B628C /* ProductTableViewCell.swift */; };
@@ -86,12 +92,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01EA6D6B7E67B486077E75F9 /* Pods-kubecoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kubecoin.release.xcconfig"; path = "Pods/Target Support Files/Pods-kubecoin/Pods-kubecoin.release.xcconfig"; sourceTree = "<group>"; };
 		777708ED23C79811ACDBB7EC /* Pods-fitcoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitcoin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitcoin/Pods-fitcoin.debug.xcconfig"; sourceTree = "<group>"; };
 		922D728F2036990500A345A1 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		922D72B1203BA8E200A345A1 /* QuantityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityViewController.swift; sourceTree = "<group>"; };
-		9238EC5C202D09AA00AD1535 /* BlockchainUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainUser.swift; sourceTree = "<group>"; };
+		925D1B17213DCA270002DD6C /* EventCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCoreData.swift; sourceTree = "<group>"; };
 		9278B40920461CE800D83B4D /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		9278B40B204727AB00D83B4D /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		92A94DC72141F58300F36B85 /* ShopClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopClient.swift; sourceTree = "<group>"; };
+		92AF8AB9213DD418007BBB70 /* UserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClient.swift; sourceTree = "<group>"; };
+		92AF8ABB213DE991007BBB70 /* SelectedEventCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedEventCoreData.swift; sourceTree = "<group>"; };
+		92AF8ABE213DF6A5007BBB70 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		92AF8AC0213DF758007BBB70 /* EventClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventClient.swift; sourceTree = "<group>"; };
 		92BF067F203D2E0500B388F9 /* ContractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
 		92BF0681203E761900B388F9 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		92CE166A203F8BF8002B628C /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
@@ -153,6 +165,8 @@
 		A2F904FD2051E2D5008E1FFA /* Treasure.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Treasure.mtl; sourceTree = "<group>"; };
 		A2F905002051E2F8008E1FFA /* Treasure.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Treasure.scn; sourceTree = "<group>"; };
 		A2F905042051E64E008E1FFA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		B0B9E06EF6BDEB9273E99307 /* Pods-kubecoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kubecoin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kubecoin/Pods-kubecoin.debug.xcconfig"; sourceTree = "<group>"; };
+		B418E209F42D2A787D738E1E /* Pods_kubecoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kubecoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A42EA1B514D8A227CB6590 /* Pods-fitcoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitcoin.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitcoin/Pods-fitcoin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +177,7 @@
 			files = (
 				A2F905052051E64E008E1FFA /* WebKit.framework in Frameworks */,
 				A28E57CA2011558100CE4C58 /* HealthKit.framework in Frameworks */,
+				1406A02852F1BDE866A52598 /* Pods_kubecoin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,8 +203,37 @@
 			children = (
 				777708ED23C79811ACDBB7EC /* Pods-fitcoin.debug.xcconfig */,
 				E5A42EA1B514D8A227CB6590 /* Pods-fitcoin.release.xcconfig */,
+				B0B9E06EF6BDEB9273E99307 /* Pods-kubecoin.debug.xcconfig */,
+				01EA6D6B7E67B486077E75F9 /* Pods-kubecoin.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		925D1B15213DC86F0002DD6C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				92AF8AB9213DD418007BBB70 /* UserClient.swift */,
+				92A94DC72141F58300F36B85 /* ShopClient.swift */,
+				92AF8AC0213DF758007BBB70 /* EventClient.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		925D1B16213DC8FF0002DD6C /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				925D1B17213DCA270002DD6C /* EventCoreData.swift */,
+				92AF8ABB213DE991007BBB70 /* SelectedEventCoreData.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		92AF8ABD213DF688007BBB70 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				92AF8ABE213DF6A5007BBB70 /* EventModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A2234DE31FF412EA002B8244 /* images */ = {
@@ -244,6 +288,7 @@
 			children = (
 				A2F905042051E64E008E1FFA /* WebKit.framework */,
 				A28E57C92011558100CE4C58 /* HealthKit.framework */,
+				B418E209F42D2A787D738E1E /* Pods_kubecoin.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -273,6 +318,9 @@
 		A2908D701FE2BEE200A0E9BE /* secretmap */ = {
 			isa = PBXGroup;
 			children = (
+				92AF8ABD213DF688007BBB70 /* Models */,
+				925D1B16213DC8FF0002DD6C /* Config */,
+				925D1B15213DC86F0002DD6C /* Controllers */,
 				A2337ACB203616A300C0ECFF /* objects */,
 				A28E57C72011558100CE4C58 /* secretmap.entitlements */,
 				A2234DE31FF412EA002B8244 /* images */,
@@ -286,7 +334,6 @@
 				92BF067F203D2E0500B388F9 /* ContractViewController.swift */,
 				922D72B1203BA8E200A345A1 /* QuantityViewController.swift */,
 				922D728F2036990500A345A1 /* ShopViewController.swift */,
-				9238EC5C202D09AA00AD1535 /* BlockchainUser.swift */,
 				9278B40B204727AB00D83B4D /* Globals.swift */,
 				A2908D7A1FE2BEE200A0E9BE /* Assets.xcassets */,
 				A2908D7C1FE2BEE200A0E9BE /* LaunchScreen.storyboard */,
@@ -499,13 +546,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-kubecoin/Pods-kubecoin-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BMSAnalyticsAPI/BMSAnalyticsAPI.framework",
+				"${BUILT_PRODUCTS_DIR}/BMSCore/BMSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/BMSPush/BMSPush.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSAnalyticsAPI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSPush.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fitcoin/Pods-fitcoin-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kubecoin/Pods-kubecoin-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7D8E3FFFA2C06ED1B51EBC38 /* [CP] Check Pods Manifest.lock */ = {
@@ -519,7 +573,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-fitcoin-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-kubecoin-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -538,7 +592,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fitcoin/Pods-fitcoin-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kubecoin/Pods-kubecoin-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -549,6 +603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2F904F42051E242008E1FFA /* Treasure.swift in Sources */,
+				92AF8AC1213DF758007BBB70 /* EventClient.swift in Sources */,
 				A2908D761FE2BEE200A0E9BE /* DataViewController.swift in Sources */,
 				A21B5EF7202374890087ADB6 /* secretmap.xcdatamodeld in Sources */,
 				A2908D721FE2BEE200A0E9BE /* AppDelegate.swift in Sources */,
@@ -559,15 +614,19 @@
 				A2E815A31FE876A000EC6F2A /* BookletController.swift in Sources */,
 				9278B40C204727AB00D83B4D /* Globals.swift in Sources */,
 				922D72B2203BA8E200A345A1 /* QuantityViewController.swift in Sources */,
-				9238EC5D202D09AA00AD1535 /* BlockchainUser.swift in Sources */,
+				925D1B18213DCA280002DD6C /* EventCoreData.swift in Sources */,
+				92AF8ABC213DE991007BBB70 /* SelectedEventCoreData.swift in Sources */,
 				A2321A7B20377E0C00E34DA7 /* Ship.swift in Sources */,
 				A2AF796C208D387C00AA99EE /* Standing.swift in Sources */,
+				92A94DC82141F58300F36B85 /* ShopClient.swift in Sources */,
 				92BF0682203E761900B388F9 /* OrdersViewController.swift in Sources */,
 				9278B40A20461CE800D83B4D /* OrderTableViewCell.swift in Sources */,
 				A2AF796A208D384E00AA99EE /* StandingsTableViewController.swift in Sources */,
 				92BF0680203D2E0500B388F9 /* ContractViewController.swift in Sources */,
+				92AF8ABA213DD418007BBB70 /* UserClient.swift in Sources */,
 				A28E57CC201659A200CE4C58 /* HealthKitManager.swift in Sources */,
 				A2AF796E208D38C300AA99EE /* StandingViewCell.swift in Sources */,
+				92AF8ABF213DF6A5007BBB70 /* EventModel.swift in Sources */,
 				A2337ACD203616C200C0ECFF /* Pirate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -732,7 +791,7 @@
 		};
 		A2908D991FE2BEE200A0E9BE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 777708ED23C79811ACDBB7EC /* Pods-fitcoin.debug.xcconfig */;
+			baseConfigurationReference = B0B9E06EF6BDEB9273E99307 /* Pods-kubecoin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -750,7 +809,7 @@
 		};
 		A2908D9A1FE2BEE200A0E9BE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E5A42EA1B514D8A227CB6590 /* Pods-fitcoin.release.xcconfig */;
+			baseConfigurationReference = 01EA6D6B7E67B486077E75F9 /* Pods-kubecoin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

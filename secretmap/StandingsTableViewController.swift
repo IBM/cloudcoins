@@ -11,7 +11,7 @@ import Foundation
 struct Participant: Codable {
     let steps: Int
     let name: String
-    let png:String
+    let png:String?
 }
 
 import UIKit
@@ -21,17 +21,28 @@ class StandingsTableViewController: UITableViewController {
     //MARK: Properties
     
     var standings = [Participant]()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var selectedEventCoreData: SelectedEventCoreData?
+    var currentEvent: String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:  #selector(getStandingsData), for: UIControlEvents.valueChanged)
-        self.refreshControl = refreshControl
-        
-        // Load the sample data.
-        getStandingsData()
+        selectedEventCoreData = SelectedEventCoreData(context: appDelegate.persistentContainer.viewContext)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedEvent = selectedEventCoreData?.selectedEvent() {
+            currentEvent = selectedEvent.event
+            
+            let refreshControl = UIRefreshControl()
+            refreshControl.addTarget(self, action:  #selector(getStandingsData), for: UIControlEvents.valueChanged)
+            self.refreshControl = refreshControl
+            
+            // Load the sample data.
+            getStandingsData()
+        }
     }
     
     @objc private func refreshStandingsData(_ sender: Any) {
@@ -67,7 +78,9 @@ class StandingsTableViewController: UITableViewController {
         let standing = standings[indexPath.row]
         
         cell.nameLabel.text = standing.name
-        cell.photoImageView.image = self.base64ToImage(base64: standing.png )
+        if let png = standing.png {
+            cell.photoImageView.image = self.base64ToImage(base64: png)
+        }
         cell.positionLabel.text = String(indexPath.row + 1)
         cell.nameLabel.text = String(standing.name)
         cell.stepsLabel.text = String(standing.steps) + " steps"
@@ -128,7 +141,11 @@ class StandingsTableViewController: UITableViewController {
     
     @objc private func getStandingsData(){
         
-        let urlString = "https://anthony-blockchain.us-south.containers.mybluemix.net/leaderboard/top/50"
+        guard currentEvent != nil else {
+            return
+        }
+        
+        let urlString = BlockchainGlobals.URL + "leaderboard/" + currentEvent! + "/top/50"
         guard let url = URL(string: urlString) else {
             print("url error")
             return
