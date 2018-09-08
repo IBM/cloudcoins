@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 struct BlockchainGlobals {
-    static var URL:String = "https://anthony-blockchain.us-south.containers.mybluemix.net/"
+    static var URL:String = "https://cloudcoin.us-south.containers.appdomain.cloud/"
+    static var EVENT_URL:String = "https://admin.cloudcoin.us-south.containers.appdomain.cloud/events/approved"
 }
 
 struct GetStateFinalResult: Codable {
@@ -84,44 +85,44 @@ struct EnrollFinalResult: Codable {
     let txId: String
 }
 
-struct Beacon: Codable {
-    let beaconId: String
-    let key: String
-    let value: String
-    let zone: Int
-    let beaconid: String
-    let color: String
-    let x: Int
-    let y: Int
-    let width: Int
-    let height: Int
-}
-
-struct Booth: Codable {
-    let boothId: String
-    let unit: String
-    let description: String
-    let measurementUnit: String
-    let shape: Shape
-    let contact: String
-}
-
-struct Shape: Codable {
-    let type: String
-    let x: Int
-    let y: Int
-    let width: Int
-    let height: Int
-}
-
-struct Event: Codable {
-    let eventId: String
-    let eventName: String
-    let location: String
-    let x: Int
-    let y: Int
-    let startDate: String
-    let endDate: String
-    let beacons: [Beacon]
-    let map: [Booth]
-}
+//struct Beacon: Codable {
+//    let beaconId: String
+//    let key: String
+//    let value: String
+//    let zone: Int
+//    let beaconid: String
+//    let color: String
+//    let x: Int
+//    let y: Int
+//    let width: Int
+//    let height: Int
+//}
+//
+//struct Booth: Codable {
+//    let boothId: String
+//    let unit: String
+//    let description: String
+//    let measurementUnit: String
+//    let shape: Shape
+//    let contact: String
+//}
+//
+//struct Shape: Codable {
+//    let type: String
+//    let x: Int
+//    let y: Int
+//    let width: Int
+//    let height: Int
+//}
+//
+//struct Event: Codable {
+//    let eventId: String
+//    let eventName: String
+//    let location: String
+//    let x: Int
+//    let y: Int
+//    let startDate: String
+//    let endDate: String
+//    let beacons: [Beacon]
+//    let map: [Booth]
+//}

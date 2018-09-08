@@ -23,7 +23,10 @@ class QuantityViewController: UIViewController {
     
     @IBOutlet var navigationBar: UINavigationBar!
     
-    var currentUser: BlockchainUser?
+//    var currentUser: BlockchainUser?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var selectedEventCoreData: SelectedEventCoreData?
+    var eventCoreData: EventCoreData?
     
     // Cancel button on top left
     @IBAction func cancel(_ sender: Any) {
@@ -55,7 +58,16 @@ class QuantityViewController: UIViewController {
         claimButton.alpha = 0.5
         stepper.alpha = 0.5
         if fitcoins! - pendingCharges! >= Int(totalPrice.text!)! {
-            self.purchaseItem()
+//            self.purchaseItem()
+            if let selectedEvent = selectedEventCoreData?.selectedEvent(), let person = eventCoreData?.getPerson(event: selectedEvent.event!) {
+                ShopClient(userId: person.blockchain!, event: selectedEvent.event!).purchaseItem(sellerId: payload!.sellerid, productId: payload!.productid, quantity: quantity.text!) { (contract) in
+                    if let contract = contract {
+                        DispatchQueue.main.async {
+                            self.transitionToContractView(payload: contract)
+                        }
+                    }
+                }
+            }
         }
         else {
             let alert = UIAlertController(title: "Purchase failed", message: "You don't have enough available fitcoins. You can cancel your pending orders if you want to change them.", preferredStyle: UIAlertControllerStyle.alert)
@@ -85,7 +97,10 @@ class QuantityViewController: UIViewController {
         productName.text = payload!.name
         totalPrice.text = String(describing: payload!.price)
         claimButton.layer.cornerRadius = 15
-        currentUser = BookletController().loadUser()
+        
+        // initialize core data helpers
+        selectedEventCoreData = SelectedEventCoreData(context: appDelegate.persistentContainer.viewContext)
+        eventCoreData = EventCoreData(context: appDelegate.persistentContainer.viewContext)
         
         UIApplication.shared.statusBarStyle = .lightContent
     }
@@ -102,87 +117,6 @@ class QuantityViewController: UIViewController {
         contractViewController?.receivedFromQuantityView = true
         self.present(contractViewController!, animated: true, completion: nil)
     }
-    
-    // This starts to make a contract of the purchase
-    // This is queued
-    private func purchaseItem() {
-        guard let url = URL(string: BlockchainGlobals.URL + "api/execute") else { return }
-        let parameters: [String:Any]
-        let request = NSMutableURLRequest(url: url)
-        
-        let session = URLSession.shared
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        //{"userId":"USER_ID_HERE","fcn":"makePurchase","args":["USER_ID_HERE","SELER_ID_HERE","PRODUCT_ID_HERE","QUANTITY"]}
-        let args: [String] = [currentUser!.userId,payload!.sellerid,payload!.productid,quantity.text!]
-        parameters = ["type":"invoke", "queue":"user_queue","params":["userId":currentUser!.userId, "fcn":"makePurchase","args":args]]
-        request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
-        
-        let makePurchase = session.dataTask(with: request as URLRequest) { (data, response, error) in
-            
-            if let data = data {
-                do {
-                    // Convert the data to JSON
-                    let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-                    
-                    if let json = jsonSerialized, let status = json["status"], let resultId = json["resultId"] {
-                        NSLog(status as! String)
-                        NSLog(resultId as! String) // Use this one to get blockchain payload
-                        
-                        // Start pinging backend with resultId
-                        self.requestTransactionResult(resultId: resultId as! String, attemptNumber: 0)
-                    }
-                }  catch let error as NSError {
-                    print(error.localizedDescription)
-                }
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-        makePurchase.resume()
-    }
-    
-    // This pings the backend for the actual result of the blockchain network
-    // After getting the user,
-    private func requestTransactionResult(resultId: String, attemptNumber: Int) {
-        if attemptNumber < 60 {
-            guard let url = URL(string: BlockchainGlobals.URL + "api/results/" + resultId) else { return }
-            
-            let session = URLSession.shared
-            let resultsFromBlockchain = session.dataTask(with: url) { (data, response, error) in
-                if let data = data {
-                    do {
-                        // data is
-                        // {"status":"done","result":"{\"message\":\"success\",\"result\":{\"txId\":\"14f41b12504e895923768b239bd3df5717ddb03dfce67a69cf9c599f94ca485f\",\"results\":{\"status\":200,\"message\":\"\",\"payload\":\"{\\\"id\\\":\\\"c193741\\\",\\\"sellerId\\\":\\\"06f2a544-bcdd-4b7d-8484-88f693e10aae\\\",\\\"userId\\\":\\\"e226df59-e489-46a2-aafd-7d839535b5c2\\\",\\\"productId\\\":\\\"stickers-1234\\\",\\\"productName\\\":\\\"Sticker\\\",\\\"quantity\\\":2,\\\"cost\\\":10,\\\"state\\\":\\\"pending\\\"}\"}}}"}
-                        let backendResult = try JSONDecoder().decode(BackendResult.self, from: data)
-                        
-                        if backendResult.status == "done" {
-                            let resultOfMakePurchase = try JSONDecoder().decode(ResultOfMakePurchase.self, from: backendResult.result!.data(using: .utf8)!)
-                            let makePurchaseFinalResult = try JSONDecoder().decode(Contract.self, from: resultOfMakePurchase.result!.results.payload.data(using: .utf8)!)
-                            DispatchQueue.main.async {
-                                self.transitionToContractView(payload: makePurchaseFinalResult)
-                            }
-                        }
-                        else {
-                            let when = DispatchTime.now() + 3
-                            DispatchQueue.main.asyncAfter(deadline: when) {
-                                self.requestTransactionResult(resultId: resultId, attemptNumber: attemptNumber+1)
-                            }
-                        }
-                    }  catch let error as NSError {
-                        print(error.localizedDescription)
-                    }
-                } else if let error = error {
-                    print(error.localizedDescription)
-                }
-            }
-            resultsFromBlockchain.resume()
-        }
-        else {
-            NSLog("Attempted 60 times to request transaction result... No results")
-        }
-    }
-    
 
     /*
     // MARK: - Navigation
