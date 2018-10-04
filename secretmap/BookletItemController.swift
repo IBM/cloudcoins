@@ -88,7 +88,7 @@ class BookletItemController: UIViewController {
         pageTitleView!.text = titleString
         subtitleView!.text = subTitleString
         if itemIndex == 0 {
-            subtitleView!.text = "other Cloudcoins events >"
+            subtitleView!.text = "other events >"
             EventClient().getEvents { (events) in
                 DispatchQueue.main.async {
                     self.events = events

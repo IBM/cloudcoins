@@ -32,6 +32,13 @@
 		A2337ACF203616CD00C0ECFF /* Pirate.scn in Resources */ = {isa = PBXBuildFile; fileRef = A2337ACE203616CD00C0ECFF /* Pirate.scn */; };
 		A2337AD1203616D200C0ECFF /* Pirate.obj in Resources */ = {isa = PBXBuildFile; fileRef = A2337AD0203616D200C0ECFF /* Pirate.obj */; };
 		A2337AD3203616D900C0ECFF /* Pirate.mtl in Resources */ = {isa = PBXBuildFile; fileRef = A2337AD2203616D900C0ECFF /* Pirate.mtl */; };
+		A23BD716215EEF4500B9C600 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23BD715215EEF4500B9C600 /* ChartViewController.swift */; };
+		A23BD71B21618AEB00B9C600 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23BD71A21618AEB00B9C600 /* Charts.framework */; };
+		A23BD71D21626E4700B9C600 /* cloudcoins splash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A23BD71C21626E4700B9C600 /* cloudcoins splash@3x.png */; };
+		A23BD7232162DDAD00B9C600 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = A23BD7222162DDAD00B9C600 /* list.png */; };
+		A23BD7252162DDB800B9C600 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = A23BD7242162DDB700B9C600 /* home.png */; };
+		A23BD7272162DDDA00B9C600 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = A23BD7262162DDDA00B9C600 /* home.png */; };
+		A23BD7292163A4B300B9C600 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = A23BD7282163A4B300B9C600 /* bar.png */; };
 		A28E57CA2011558100CE4C58 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28E57C92011558100CE4C58 /* HealthKit.framework */; };
 		A28E57CC201659A200CE4C58 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E57CB201659A200CE4C58 /* HealthKitManager.swift */; };
 		A2908D721FE2BEE200A0E9BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2908D711FE2BEE200A0E9BE /* AppDelegate.swift */; };
@@ -118,6 +125,13 @@
 		A2337ACE203616CD00C0ECFF /* Pirate.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Pirate.scn; sourceTree = "<group>"; };
 		A2337AD0203616D200C0ECFF /* Pirate.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pirate.obj; sourceTree = "<group>"; };
 		A2337AD2203616D900C0ECFF /* Pirate.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pirate.mtl; sourceTree = "<group>"; };
+		A23BD715215EEF4500B9C600 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		A23BD71A21618AEB00B9C600 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A23BD71C21626E4700B9C600 /* cloudcoins splash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloudcoins splash@3x.png"; path = "../../../../../Creative Cloud Files/cloudcoins splash@3x.png"; sourceTree = "<group>"; };
+		A23BD7222162DDAD00B9C600 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list.png; path = ../../../../list.png; sourceTree = "<group>"; };
+		A23BD7242162DDB700B9C600 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = ../../../../home.png; sourceTree = "<group>"; };
+		A23BD7262162DDDA00B9C600 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = ../../../../home.png; sourceTree = "<group>"; };
+		A23BD7282163A4B300B9C600 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bar.png; path = ../../../../bar.png; sourceTree = "<group>"; };
 		A28E57C72011558100CE4C58 /* secretmap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = secretmap.entitlements; sourceTree = "<group>"; };
 		A28E57C92011558100CE4C58 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		A28E57CB201659A200CE4C58 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
@@ -175,6 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23BD71B21618AEB00B9C600 /* Charts.framework in Frameworks */,
 				A2F905052051E64E008E1FFA /* WebKit.framework in Frameworks */,
 				A28E57CA2011558100CE4C58 /* HealthKit.framework in Frameworks */,
 				1406A02852F1BDE866A52598 /* Pods_kubecoin.framework in Frameworks */,
@@ -239,6 +254,7 @@
 		A2234DE31FF412EA002B8244 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A23BD71C21626E4700B9C600 /* cloudcoins splash@3x.png */,
 				A2AF796F208F7BF100AA99EE /* standings-tab.png */,
 				A2AF793D207D7E0D00AA99EE /* Application.png */,
 				A2AF7944207D7E0D00AA99EE /* Application@2x.png */,
@@ -249,9 +265,12 @@
 				A2AF793C207D7E0D00AA99EE /* kubecoin logo.png */,
 				A2AF7949207D7E0E00AA99EE /* kubecoin logo@2x.png */,
 				A2AF7965207F8D5D00AA99EE /* booklet-tab.png */,
+				A23BD7282163A4B300B9C600 /* bar.png */,
 				A2AF7945207D7E0E00AA99EE /* kubecoin logo@3x.png */,
 				A2AF793E207D7E0D00AA99EE /* Microservices.png */,
+				A23BD7262162DDDA00B9C600 /* home.png */,
 				A2AF793B207D7E0D00AA99EE /* Microservices@2x.png */,
+				A23BD7222162DDAD00B9C600 /* list.png */,
 				A2AF7942207D7E0D00AA99EE /* Microservices@3x.png */,
 				A2AF7947207D7E0E00AA99EE /* Run.png */,
 				A2AF794A207D7E0E00AA99EE /* Run@2x.png */,
@@ -259,6 +278,7 @@
 				A2AF794B207D7E0E00AA99EE /* Run@3x.png */,
 				A2AF793F207D7E0D00AA99EE /* Secure.png */,
 				A2AF7948207D7E0E00AA99EE /* Secure@2x.png */,
+				A23BD7242162DDB700B9C600 /* home.png */,
 				A2AF7946207D7E0E00AA99EE /* Secure@3x.png */,
 			);
 			path = images;
@@ -286,6 +306,7 @@
 		A28E57C82011558100CE4C58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A23BD71A21618AEB00B9C600 /* Charts.framework */,
 				A2F905042051E64E008E1FFA /* WebKit.framework */,
 				A28E57C92011558100CE4C58 /* HealthKit.framework */,
 				B418E209F42D2A787D738E1E /* Pods_kubecoin.framework */,
@@ -325,6 +346,7 @@
 				A28E57C72011558100CE4C58 /* secretmap.entitlements */,
 				A2234DE31FF412EA002B8244 /* images */,
 				A2908D711FE2BEE200A0E9BE /* AppDelegate.swift */,
+				A23BD715215EEF4500B9C600 /* ChartViewController.swift */,
 				A21B5EF5202374890087ADB6 /* secretmap.xcdatamodeld */,
 				A2908D751FE2BEE200A0E9BE /* DataViewController.swift */,
 				A2908D771FE2BEE200A0E9BE /* Main.storyboard */,
@@ -380,7 +402,6 @@
 				A2908D6B1FE2BEE200A0E9BE /* Frameworks */,
 				A2908D6C1FE2BEE200A0E9BE /* Resources */,
 				68F0A5B8B874966975DCD99A /* [CP] Embed Pods Frameworks */,
-				8159F7DCCD27745013ECF2E5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -461,7 +482,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A2908D691FE2BEE200A0E9BE /* Build configuration list for PBXProject "kubecoin" */;
+			buildConfigurationList = A2908D691FE2BEE200A0E9BE /* Build configuration list for PBXProject "cloudcoins" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -498,6 +519,7 @@
 				A2AF7955207D7E0E00AA99EE /* Cloud@2x.png in Resources */,
 				A2AF7959207D7E0E00AA99EE /* Run.png in Resources */,
 				A2AF794E207D7E0E00AA99EE /* kubecoin logo.png in Resources */,
+				A23BD7252162DDB800B9C600 /* home.png in Resources */,
 				A2AF794F207D7E0E00AA99EE /* Application.png in Resources */,
 				A2908D7E1FE2BEE200A0E9BE /* LaunchScreen.storyboard in Resources */,
 				A2AF7953207D7E0E00AA99EE /* Application@3x.png in Resources */,
@@ -508,13 +530,17 @@
 				A2AF7958207D7E0E00AA99EE /* Secure@3x.png in Resources */,
 				A2AF7950207D7E0E00AA99EE /* Microservices.png in Resources */,
 				A2337AD3203616D900C0ECFF /* Pirate.mtl in Resources */,
+				A23BD7272162DDDA00B9C600 /* home.png in Resources */,
 				A2AF7952207D7E0E00AA99EE /* Cloud@3x.png in Resources */,
 				A2321A7920377DD900E34DA7 /* Ship.obj in Resources */,
+				A23BD71D21626E4700B9C600 /* cloudcoins splash@3x.png in Resources */,
 				A2AF7966207F8D5D00AA99EE /* booklet-tab.png in Resources */,
 				A2F904FF2051E2D5008E1FFA /* Treasure.mtl in Resources */,
 				A2AF795A207D7E0E00AA99EE /* Secure@2x.png in Resources */,
+				A23BD7232162DDAD00B9C600 /* list.png in Resources */,
 				A2AF795B207D7E0E00AA99EE /* kubecoin logo@2x.png in Resources */,
 				A2AF7957207D7E0E00AA99EE /* kubecoin logo@3x.png in Resources */,
+				A23BD7292163A4B300B9C600 /* bar.png in Resources */,
 				A2AF7956207D7E0E00AA99EE /* Application@2x.png in Resources */,
 				A2908D7B1FE2BEE200A0E9BE /* Assets.xcassets in Resources */,
 				A2234E191FF5B108002B8244 /* booklet.json in Resources */,
@@ -550,12 +576,14 @@
 				"${BUILT_PRODUCTS_DIR}/BMSAnalyticsAPI/BMSAnalyticsAPI.framework",
 				"${BUILT_PRODUCTS_DIR}/BMSCore/BMSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/BMSPush/BMSPush.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSAnalyticsAPI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSPush.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -580,21 +608,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8159F7DCCD27745013ECF2E5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kubecoin/Pods-kubecoin-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -607,6 +620,7 @@
 				A2908D761FE2BEE200A0E9BE /* DataViewController.swift in Sources */,
 				A21B5EF7202374890087ADB6 /* secretmap.xcdatamodeld in Sources */,
 				A2908D721FE2BEE200A0E9BE /* AppDelegate.swift in Sources */,
+				A23BD716215EEF4500B9C600 /* ChartViewController.swift in Sources */,
 				922D72902036990500A345A1 /* ShopViewController.swift in Sources */,
 				A2F099EE2059C9CD006AAABE /* AssetViewController.swift in Sources */,
 				A2234E0D1FF4220B002B8244 /* BookletItemController.swift in Sources */,
@@ -793,7 +807,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B0B9E06EF6BDEB9273E99307 /* Pods-kubecoin.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = CloudCoins;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = secretmap/secretmap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -811,7 +825,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01EA6D6B7E67B486077E75F9 /* Pods-kubecoin.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = CloudCoins;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = secretmap/secretmap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -894,7 +908,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A2908D691FE2BEE200A0E9BE /* Build configuration list for PBXProject "kubecoin" */ = {
+		A2908D691FE2BEE200A0E9BE /* Build configuration list for PBXProject "cloudcoins" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A2908D961FE2BEE200A0E9BE /* Debug */,

@@ -42,13 +42,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "secretmap/BookletController.swift"
-            timestampString = "546642589.839193"
+            timestampString = "560207712.906235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "164"
             endingLineNumber = "164"
-            landmarkName = "BookletController"
-            landmarkType = "3">
+            landmarkName = "getItemController(itemIndex:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -152,7 +152,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "secretmap/AppDelegate.swift"
-            timestampString = "546556345.979739"
+            timestampString = "560296870.224779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"

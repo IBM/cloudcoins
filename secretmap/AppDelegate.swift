@@ -25,19 +25,6 @@ extension Notification.Name {
         rawValue: "zoneEntered")
 }
 
-//struct iBeacon: Codable {
-//    let zone: Int
-//    let key: String
-//    let value: String
-//    let x: Int
-//    let y: Int
-//    let width: Int
-//}
-//
-//struct iBeacons: Codable {
-//    let beacons:[iBeacon]
-//}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,BMSPushObserver {
 

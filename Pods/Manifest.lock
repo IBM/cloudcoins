@@ -4,16 +4,28 @@ PODS:
     - BMSAnalyticsAPI (~> 2.2)
   - BMSPush (3.2.7):
     - BMSCore (~> 2.0)
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
 
 DEPENDENCIES:
   - BMSCore (~> 2.0)
   - BMSPush (~> 3.0)
+  - Charts
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BMSAnalyticsAPI
+    - BMSCore
+    - BMSPush
+    - Charts
 
 SPEC CHECKSUMS:
   BMSAnalyticsAPI: d259379069bb11d2ff365bf5b796a2677dfc3849
   BMSCore: 446c16a7dbe14b5019751617a00dd947c65cca82
   BMSPush: 4cb8442992abd559664a96a44ffba78fe326abf8
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
 
-PODFILE CHECKSUM: 940a029343c8c5e3fe26c6bdf30b843aa631e18b
+PODFILE CHECKSUM: 433de421c49136f4c94f7ac1286f58b98b7cddf0
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
