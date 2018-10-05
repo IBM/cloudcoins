@@ -13,6 +13,8 @@ class QuantityViewController: UIViewController {
     var payload: Product?
     var fitcoins: Int?
     var pendingCharges: Int?
+    var productLimit: Int?
+    var currentQuantityOfUser: Int?
     
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -60,13 +62,33 @@ class QuantityViewController: UIViewController {
         if fitcoins! - pendingCharges! >= Int(totalPrice.text!)! {
 //            self.purchaseItem()
             if let selectedEvent = selectedEventCoreData?.selectedEvent(), let person = eventCoreData?.getPerson(event: selectedEvent.event!) {
-                ShopClient(userId: person.blockchain!, event: selectedEvent.event!).purchaseItem(sellerId: payload!.sellerid, productId: payload!.productid, quantity: quantity.text!) { (contract) in
-                    if let contract = contract {
-                        DispatchQueue.main.async {
-                            self.transitionToContractView(payload: contract)
+                if let productLimit = productLimit, let currentUserHas = currentQuantityOfUser {
+                    
+                    if currentUserHas + Int(quantity.text!)! <= productLimit {
+                        ShopClient(userId: person.blockchain!, event: selectedEvent.event!).purchaseItem(sellerId: payload!.sellerid, productId: payload!.productid, quantity: quantity.text!) { (contract) in
+                            if let contract = contract {
+                                DispatchQueue.main.async {
+                                    self.transitionToContractView(payload: contract)
+                                }
+                            }
+                        }
+                    } else {
+                        let alert = UIAlertController(title: "Purchase failed", message: "A limit of \(productLimit) has been set right now for \(payload!.name).\nYou already have \(currentUserHas) of \(payload!.name)", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: {
+                            (action: UIAlertAction) in self.dismiss(animated: true, completion: nil)
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                } else {
+                    ShopClient(userId: person.blockchain!, event: selectedEvent.event!).purchaseItem(sellerId: payload!.sellerid, productId: payload!.productid, quantity: quantity.text!) { (contract) in
+                        if let contract = contract {
+                            DispatchQueue.main.async {
+                                self.transitionToContractView(payload: contract)
+                            }
                         }
                     }
                 }
+                
             }
         }
         else {

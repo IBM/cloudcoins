@@ -31,4 +31,26 @@ class EventClient {
         }
         getEvents.resume()
     }
+    
+    func getProductLimits(productId: String, _ onCompletion: @escaping (Int?) -> Void) {
+        guard let url = URL(string: "https://admin.cloudcoin.us-south.containers.appdomain.cloud/events/limits/cfsummit") else { return }
+        let session = URLSession.shared
+        let getLimits = session.dataTask(with: url) { (data, response, error) in
+            
+            if let data = data {
+                do {
+                    // Convert the data to JSON
+                    let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+                    onCompletion(jsonSerialized?[productId] as? Int)
+                }  catch let error as NSError {
+                    print(error.localizedDescription)
+                    onCompletion(nil)
+                }
+            } else if let error = error {
+                print(error.localizedDescription)
+                onCompletion(nil)
+            }
+        }
+        getLimits.resume()
+    }
 }

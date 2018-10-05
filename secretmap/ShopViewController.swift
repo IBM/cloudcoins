@@ -23,6 +23,7 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var pendingCharges: Int?
     var fitcoins: Int?
+    var itemizedInventory: [String: Int] = [:]
     
     // Don't forget to enter this in IB also
     let cellReuseIdentifier = "cell"
@@ -81,11 +82,23 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
                     if let contracts = contracts {
                         self.receivedContracts = contracts
                         var aggregatedCharges = 0
+                        self.itemizedInventory = [:]
                         for contract in contracts {
                             if contract.state == "pending" {
                                 aggregatedCharges += contract.cost
                             }
+                            
+                            // get total swags of users (ignore declined contracts)
+                            if contract.state != "declined" {
+                                if let currentItem = self.itemizedInventory[contract.productId] {
+                                    self.itemizedInventory[contract.productId] = currentItem + contract.quantity
+                                } else {
+                                    self.itemizedInventory[contract.productId] = contract.quantity
+                                }
+                            }
                         }
+                        print("INVENTORY OF USER")
+                        print(self.itemizedInventory)
                         self.pendingCharges = aggregatedCharges
                         DispatchQueue.main.async {
                             self.ordersButton.isEnabled = true
@@ -159,7 +172,7 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let imageView = UIImageView(image: UIImage(named: productId))
         imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         
         for subview in cell.myView.subviews {
             subview.removeFromSuperview()
@@ -180,7 +193,13 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         if fitcoins != nil && pendingCharges != nil {
             quantityViewController.pendingCharges = pendingCharges
             quantityViewController.fitcoins = fitcoins
-            self.present(quantityViewController, animated: true, completion: nil)
+            quantityViewController.currentQuantityOfUser = itemizedInventory[self.productsInStock![indexPath.row].productid]
+            EventClient().getProductLimits(productId: (quantityViewController.payload?.productid)!) { (limit) in
+                quantityViewController.productLimit = limit
+                DispatchQueue.main.async {
+                    self.present(quantityViewController, animated: true, completion: nil)
+                }
+            }
         }
         else {
             print("please wait")

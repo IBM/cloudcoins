@@ -155,7 +155,7 @@ class UserClient {
                             self.sendToMongo(userId: resultOfEnroll.result!.user, onCompletion)
                         }
                         else {
-                            let when = DispatchTime.now() + 1.5 // 1.5 seconds from now
+                            let when = DispatchTime.now() + 1.0 // 1.0 seconds from now
                             DispatchQueue.main.asyncAfter(deadline: when) {
                                 self.registerUserResults(resultId: resultId, attemptNumber: attemptNumber+1, onCompletion)
                             }
