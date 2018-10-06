@@ -18,6 +18,7 @@ class BookletItemController: UIViewController {
     @IBOutlet var button:UIButton?
     var picker: UIPickerView?
     
+    var defaultEvent: String?
     var events: [EventModel]?
     var rowPicker: Int?
     @IBOutlet weak var eventChoice: UITextField!
@@ -101,6 +102,7 @@ class BookletItemController: UIViewController {
                     let tap = UITapGestureRecognizer(target: self, action: #selector(BookletItemController.tapFunction))
                     self.subtitleView?.addGestureRecognizer(tap)
                     if SelectedEventCoreData(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext).selectedEvent() == nil {
+                        self.defaultEvent = "cfsummit"
                         self.tapFunction(sender: tap)
                     }
                 }
@@ -123,8 +125,14 @@ class BookletItemController: UIViewController {
     
     @objc func tapFunction(sender: UITapGestureRecognizer) {
         print("tap working")
-        self.enablePageViewController(false)
-        self.eventChoice.becomeFirstResponder()
+        if let defaultEvent = self.defaultEvent {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.onEventSelection(defaultEvent)
+            self.enablePageViewController(true)
+        } else {
+            self.enablePageViewController(false)
+            self.eventChoice.becomeFirstResponder()
+        }
     }
     
     @IBAction func eventEdit(_ sender: UITextField) {

@@ -83,10 +83,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMSPushObserver {
     func registerAtSelectedEvent(_ eventName: String) {
         UserClient(event: eventName).registerUser { (userId, name, avatar) in
             self.eventCoreData?.savePerson(userId: userId, participantname: name, avatar: avatar, event: eventName)
-            
-            let alert = UIAlertController(title: "Enrollment successful!", message: "You have been enrolled to the blockchain network. Your User ID is:\n\n\(userId)", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: nil))
-            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Enrollment successful!", message: "You have been enrolled to the blockchain network. Your User ID is:\n\n\(userId)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: nil))
+                self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+            }
         }
     }
 

@@ -725,7 +725,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy pirate" translatesAutoresizingMaskIntoConstraints="NO" id="wVc-26-DGk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy pirate" translatesAutoresizingMaskIntoConstraints="NO" id="wVc-26-DGk">
                                 <rect key="frame" x="110" y="169.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="afQ-BF-0dq"/>
@@ -862,7 +862,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy pirate" translatesAutoresizingMaskIntoConstraints="NO" id="3pu-Cc-zwx">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy pirate" translatesAutoresizingMaskIntoConstraints="NO" id="3pu-Cc-zwx">
                                 <rect key="frame" x="85" y="219" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="3Kg-5R-D0F"/>

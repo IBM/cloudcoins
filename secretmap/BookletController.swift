@@ -117,6 +117,12 @@ class BookletController: UIViewController, UIPageViewControllerDataSource {
         pageViewController = pageController
         pageViewController?.view.frame = CGRect(x: 0,y: 0,width: self.view.frame.width,height: self.view.frame.size.height)
         addChildViewController(pageViewController!)
+        
+        // remove subviews
+        for view in self.view.subviews {
+            view.removeFromSuperview()
+        }
+        
         self.view.addSubview(pageViewController!.view)
         pageViewController!.didMove(toParentViewController: self)
     }
