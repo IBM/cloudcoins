@@ -29,9 +29,10 @@ See the booth primer [here](https://github.com/IBM/cloudcoins/blob/master/ABOUT.
 This repo is for the iOS/iPhone app that connects to a blockchain network. There are associated repos and concepts that go along with this.
 
 You'll need [cocoapods](https://cocoapods.org/) to install this app.
-
-```Run $ pod install in your project directory.
-Open App.xcworkspace in XCode and build.```
+```
+Run $ pod install in your project directory.
+Open App.xcworkspace in XCode and build.
+```
 
 You may need to adjust to your developer org in XCode.
 
